@@ -1,6 +1,7 @@
 <script>
   import "./app.css";
   import videoSrc from "./assets/bg-video.mp4";
+  // @ts-ignore
   import IoMdRocket from "svelte-icons/io/IoMdRocket.svelte";
   import { spring } from "svelte/motion";
   import { draggable } from "svelte-drag";
@@ -40,10 +41,11 @@
     id="mainContent"
     bind:this={mainContent}
     on:scroll={(e) => {
+      e.preventDefault();
       // @ts-ignore
       $scrollRocketYCoord = e.target.scrollTop;
     }}
-    class="relative h-screen w-screen flex flex-col z-10 text-red-50 w-screen overflow-auto"
+    class="relative h-screen w-screen flex flex-col z-10 text-red-50 w-screen overflow-auto scroll-smooth"
   >
     <div
       class="text-red-100 h-12 fixed right-0 w-fit hover: cursor-grab"
@@ -179,9 +181,4 @@
   #mainContent::-webkit-scrollbar-track {
     background-color: transparent;
   }
-
-  /* #mainContent::-webkit-scrollbar-thumb {
-    background-color: #d6dee1;
-    border-radius: 20px;
-  } */
 </style>
