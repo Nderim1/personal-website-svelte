@@ -40,6 +40,7 @@
     id="mainContent"
     bind:this={mainContent}
     on:scroll={(e) => {
+      // @ts-ignore
       $scrollRocketYCoord = e.target.scrollTop;
     }}
     class="relative h-screen w-screen flex flex-col z-10 text-red-50 w-screen overflow-auto"
